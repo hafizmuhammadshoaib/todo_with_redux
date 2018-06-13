@@ -1,7 +1,17 @@
+import fire from './firebase';
+
+
+// var rootRef = fire.database().ref('/');
 export default class TodoActions {
     static ADD = 'ADD';
+    static ADD_SUCCESS='ADD_SUCCESS';
     static DELETE = 'DELETE';
+    static DELETE_SUCCESS='DELETE_SUCCESS';
     static UPDATE = 'UPDATE';
+    static UPDATE_SUCCESS='UPDATE_SUCCESS';
+    static RENDER = 'RENDER';
+    static RENDER_SUCC = 'RENDER_SUCC';
+   
     static add(value) {
         return {
             type: TodoActions.ADD,
@@ -14,10 +24,17 @@ export default class TodoActions {
             payload: id
         }
     }
-    static update(id,inputValue){
+    static update(id, inputValue) {
         return {
-            type:TodoActions.UPDATE,
-            payload:{id:id,inputValue:inputValue}
+            type: TodoActions.UPDATE,
+            payload: { id: id, inputValue: inputValue }
         }
     }
+    static render(){
+        return{
+            type:TodoActions.RENDER
+        }
+    }
+    
+
 }
