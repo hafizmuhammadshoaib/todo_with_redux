@@ -27,7 +27,7 @@ export default class TodoActions {
     static update(id, inputValue) {
         return {
             type: TodoActions.UPDATE,
-            payload: { id: id, inputValue: inputValue }
+            payload: { _id: id, task: inputValue }
         }
     }
     static render(){

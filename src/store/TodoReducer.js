@@ -14,21 +14,21 @@ export default function TodoReducer(state = INITIAL_STATE, action) {
       });
       break;
     case TodoActions.DELETE_SUCCESS:
-    console.log(action.payload);
-    
+      console.log(action.payload);
+
       return Object.assign({}, state, {
-        todo: state.todo.filter(value => value.key !== action.payload)
+        todo: state.todo.filter(value => value._id !== action.payload)
       });
       break;
     case TodoActions.UPDATE_SUCCESS:
-      
+
       let index = state.todo.findIndex(
-        element => element.key == action.payload.key
+        element => element._id == action.payload._id
       );
       let array = [...state.todo];
-      array[index].task=action.payload.task
-      
-      return Object.assign({},state,{todo:array})
+      array[index].task = action.payload.task
+
+      return Object.assign({}, state, { todo: array })
       break;
     case TodoActions.RENDER_SUCC:
       let obj1 = { ...state };
